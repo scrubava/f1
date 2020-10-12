@@ -1,0 +1,56 @@
+@import 'theme';
+
+@import 'styles/colors';
+@import 'styles/variables';
+
+$base-font-size: 14px;
+$font-size-xs: 9px;
+$font-size-s: 13px;
+$font-size-m: 14px;
+$font-size-l: 14px;
+$font-size-xl: 14px;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    // Used material responsive layout grid as a guideline for this example.
+    // Should be tweaked according to requirements, add more breakpoints and so on
+
+    //screen size - xs
+    @media (max-width: 599px) {
+        --base-font-size: #{$font-size-xs};
+    }
+
+    //screen size - s
+    @media (min-width: 600px) and (max-width: 1023px) {
+        --base-font-size: #{$font-size-s};
+    }
+
+    //screen size - m
+    @media (min-width: 1024px) and (max-width: 1439px) {
+        --base-font-size: #{$font-size-m};
+    }
+
+    //screen size - l
+    @media (min-width: 1440px) and (max-width: 1919px) {
+        --base-font-size: #{$font-size-l};
+    }
+
+    //screen size - xl
+    @media (min-width: 1920px) {
+        --base-font-size: #{$font-size-xl};
+    }
+
+    font-size: var(--base-font-size);
+}
+
+body,
+html {
+    background-color: $main-background;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}

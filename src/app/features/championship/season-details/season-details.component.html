@@ -1,0 +1,51 @@
+<cdk-table [dataSource]="details" [f1Loader]="loading">
+    <ng-container cdkColumnDef="season">
+        <cdk-header-cell *cdkHeaderCellDef>Season</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">{{row.season}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="race">
+        <cdk-header-cell *cdkHeaderCellDef>Race</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">{{row.race}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="driver">
+        <cdk-header-cell *cdkHeaderCellDef>Winner</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">{{row.driver}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="constr">
+        <cdk-header-cell *cdkHeaderCellDef>Constructor</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">{{row.constr}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="points">
+        <cdk-header-cell *cdkHeaderCellDef>Points</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">{{row.points}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="status">
+        <cdk-header-cell *cdkHeaderCellDef>Status</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">
+            <span>{{row.status}}</span>
+            <mat-icon color="primary" [inline]="true">assistant_photo</mat-icon>
+        </cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="time">
+        <cdk-header-cell *cdkHeaderCellDef>Time</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row">
+            <span>{{row.time}}</span>
+            <mat-icon color="primary" [inline]="true">query_builder</mat-icon>
+        </cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="empty-row">
+        <cdk-header-cell *cdkHeaderCellDef>No data available</cdk-header-cell>
+    </ng-container>
+
+    <cdk-header-row *cdkHeaderRowDef="columns; sticky: true"></cdk-header-row>
+    <cdk-header-row *cdkHeaderRowDef="['empty-row']" [class.hidden]="hasResults"></cdk-header-row>
+
+    <cdk-row *cdkRowDef="let row; columns: columns" [class.highlighted]="row.seasonChampion"></cdk-row>
+</cdk-table>

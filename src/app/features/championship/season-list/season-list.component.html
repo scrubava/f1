@@ -1,0 +1,5 @@
+<div class="season-list" [f1Loader]="loading">
+    <div></div>
+    <div></div>
+    <f1-season *ngFor="let s of seasons" [season]="s" (click)="selectSeason(s)" class="leaf"></f1-season>
+</div>

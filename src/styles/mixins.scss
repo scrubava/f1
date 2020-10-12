@@ -1,0 +1,37 @@
+@mixin transform($transform) {
+    @include browser-compat(transform, $transform);
+}
+
+@mixin animation($animation) {
+    @include browser-compat(animation, $animation);
+}
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin browser-compat($rule, $value) {
+    #{$rule}: #{$value};
+    -o-#{$rule}: #{$value};
+    -ms-#{$rule}: #{$value};
+    -moz-#{$rule}: #{$value};
+    -webkit-#{$rule}: #{$value};
+}

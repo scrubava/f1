@@ -1,0 +1,81 @@
+@import "./src/styles/mixins";
+
+$leaf-width: 20em;
+$leaf-width-step: 10em;
+$horizontal-offset: $leaf-width-step / 2;
+$border-radius: 150%;
+$animation-scale: 1.15;
+
+:host {
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: inline-block;
+
+    .season-list {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 auto;
+        align-items: center;
+        min-height: 100%;
+        padding: 1em 0;
+        box-sizing: border-box;
+        position: relative;
+
+        .leaf {
+            position: relative;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            @include browser-compat(transition, all 0.4s ease-in-out);
+
+            &:hover {
+                @include browser-compat(transform, scale($animation-scale));
+            }
+
+            //Uncomment for funny animation :D
+            //@include animation(1s ease-in 0s 1 forwards running rotate);
+            //@for $i from 0 to 100 {
+            //    &:nth-child(#{$i}n) {
+            //        @include browser-compat(animation-delay, #{$i * 0.1}s);
+            //    }
+            //}
+
+            $total-width: $leaf-width;
+
+            @for $i from 1 through 5 {
+                &:nth-child(5n+#{$i}) {
+                    width: $total-width;
+                }
+
+                @if ($i < 3) {
+                    $total-width: $total-width + $leaf-width-step;
+                } @else {
+                    $total-width: $total-width - $leaf-width-step;
+                }
+            }
+        }
+    }
+
+    //Uncomment for funny animation :D
+    //@include keyframes(rotate) {
+    //    from {
+    //        @include transform(rotate3d(0,1,0, 0deg));
+    //    }
+    //    to {
+    //        @include transform(rotate3d(0,1,0, 360deg));
+    //    }
+    //}
+    //
+    //@include keyframes(rotate-reverse) {
+    //    from {
+    //        @include transform(rotate3d(0,1,0, 360deg));
+    //    }
+    //    to {
+    //        @include transform(rotate3d(0,1,0, 0deg));
+    //    }
+    //}
+}

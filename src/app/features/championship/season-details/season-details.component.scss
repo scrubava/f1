@@ -1,0 +1,33 @@
+@import "./src/styles/cdk-table";
+@import "./src/styles/colors";
+
+$icon-font-size: 1.5em;
+$accent-lighten-level: 15;
+$accent-lighter: lighten($accent, $accent-lighten-level);
+
+:host {
+    display: flex;
+    width: auto;
+    height: 100%;
+    overflow: auto;
+
+    .mat-icon {
+        font-size: $icon-font-size;
+        display: flex;
+        padding: 0 0.25em;
+        box-sizing: border-box;
+        color: $accent;
+    }
+
+    cdk-table {
+        padding: 0 2em;
+    }
+
+    cdk-row.highlighted {
+        background: $accent-lighter;
+
+        .mat-icon {
+            color: #424c4c;
+        }
+    }
+}

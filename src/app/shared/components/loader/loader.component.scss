@@ -1,0 +1,51 @@
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+$loader-height: 2em;
+$loader-width: 2em;
+$loader-span-width: 2em / 6;
+$loader-span-offset: ($loader-width / $loader-span-width);
+$loader-time-offset: 0.12s;
+
+:host {
+    font-size: 2rem;
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        width: $loader-width;
+        height: $loader-height;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            display: inline-block;
+            position: relative;
+            right: 0;
+            width: $loader-span-width;
+            background: $accent;
+
+            @include animation(posting 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite);
+        }
+
+        @for $i from 0 to 3 {
+            span:nth-child(#{$i+1}) {
+                @include browser-compat(animation-delay, ($i - 2) * $loader-time-offset);
+            }
+        }
+    }
+
+    @include keyframes(posting) {
+        0% {
+            top: 0;
+            height: $loader-height;
+        }
+
+        50%, 100% {
+            top: $loader-height / 4;
+            height: $loader-height / 2;
+        }
+    }
+}
