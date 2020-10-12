@@ -29,7 +29,7 @@ Contain routes 'f1/*' from ChampionshipModule.
 
 `ChampionshipRoutingModule` - Contains routes required for ChampionshipModule.
          
-###ChampionshipModule:
+### ChampionshipModule:
 Components:
 
 `SeasonComponent` - renders single node in SeasonListComponent. 
@@ -47,7 +47,7 @@ Services:
 >I decided to fetch them all. It could be possible to use paging (e.g. first championship is a known constant) for solving current assignment - fetching
 >2005 - 2015 years - but that won't work in general, because year can be skipped, current year becomes available when first race is logged. 
         
-###CoreModule:
+### CoreModule:
 
 Services:
 
@@ -55,7 +55,7 @@ Services:
 
 `LoggerService` - basic logger service that logs errors to console and shows in MatSnackBar.
         
-###SharedModule:
+### SharedModule:
 
 Components:
 
@@ -67,11 +67,11 @@ Directives:
 
 `LoadingDirective` - directive that inserts LoaderComponent to indicate loading process
 
-###Styles folder:
+### Styles folder:
 
 Contains global style variables/mixins
 
-###Modules used:
+### Modules used:
 
 `MatSnackBarModule` - to show error messages.
 
@@ -79,7 +79,7 @@ Contains global style variables/mixins
 
 `CdkTableModule` - to render tables, no styles.
     
-###How to run:
+### How to run:
 1. Install Angular CLI `npm install -g @angular/cli`
 2. Checkout project
 3. Open project folder
@@ -94,7 +94,7 @@ Contains global style variables/mixins
         
     - `ng test` to run unit tests
 
-###Tested in:
+### Tested in:
 - Chrome
 - Firefox
 - Safari
